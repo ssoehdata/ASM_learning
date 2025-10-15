@@ -10,7 +10,7 @@ Working through resources to learn x86 and ARM assembly
 #### 
 ### Additional Diverse resources
 <ul>
-    <li></li>
+    <li>Fundamentals of ARM Assembly, Low Level Academy</li>
     <li></li>
 
 </ul>

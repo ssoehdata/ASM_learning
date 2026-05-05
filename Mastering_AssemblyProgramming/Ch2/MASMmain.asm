@@ -13,17 +13,17 @@ uType:DWORD
 
 main PROC
 
-	push 0				; Prepare the value to return to the operating system
+	push 0				        ; Prepare the value to return to the operating system
 	push offset msg			; Pass pointer to MessageBox's text to the show_message( ) function 
 	push offset ti				; Pass pointer to MessageBox's title to the show_message( ) function
-	call show_message               ; Call it 
-	call ExitProcess		; and return to the operating system 
+	call show_message      ; Call it 
+	call ExitProcess		    ; and return to the operating system 
 
-	push 0				; Prepare the value to return to the operating system
+	push 0				        ; Prepare the value to return to the operating system
 	push offset msg			; Pass pointer to MessageBox's text to the show_message( ) function 
-	push offset ti			; Pass pointer to MessageBox's title to the show_message( ) function
-	call show_message               ; Call it 
-	call ExitProcess		; and return to the operating system 
+	push offset ti			    ; Pass pointer to MessageBox's title to the show_message( ) function
+	call show_message      ; Call it 
+	call ExitProcess		    ; and return to the operating system 
 
 main ENDP 
 
@@ -34,21 +34,21 @@ show_message PROC
 	mov ebp, esp 
 	push eax 
 
-	push 0				; uType 
+	push 0				                            ; uType 
 	mov eax,	[dword ptr ebp + 8] 
-	push eax			; lpCaption 
+	push eax			                            ; lpCaption 
     mov eax,		[dword ptr ebp + 12]
-	push eax			;lpText
-	push 0			    	; hWnd 
+	push eax			                            ;lpText
+	push 0			    	                        ; hWnd 
 
-	call MessageBoxA	        ; call MessageBox( )
+	call MessageBoxA	                        ; call MessageBox( )
 
-	call MessageBoxA	     	; call MessageBox( )
+	call MessageBoxA	     	                ; call MessageBox( )
 
  
 	pop eax 
 	mov esp, ebp 
 	pop  ebp
-	ret 4 * 2			; Return and clean the stack 
+	ret 4 * 2			                                ; Return and clean the stack 
 show_message ENDP 
 END main 
